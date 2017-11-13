@@ -61,7 +61,7 @@ class TodoListViewController: UIViewController {
     
     @IBAction func clearTodoList(_ sender: Any) {
         todoItems.value.removeAll()
-    }
+     }
     
     
 }

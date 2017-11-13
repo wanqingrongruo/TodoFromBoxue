@@ -29,15 +29,18 @@ extension TodoListViewController {
         label.text = item.name
     }
     
+    // 目录
     func documentsDirectory() -> URL {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return path[0]
     }
     
+    // 完整路径
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("TodoLsit.plist")
     }
     
+    // 解压缩
     func loadTodoItems() {
         let path = dataFilePath()
         
@@ -49,6 +52,7 @@ extension TodoListViewController {
         }
     }
     
+    // 压缩
     func saveTodoItems() {
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
