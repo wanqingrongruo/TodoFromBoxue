@@ -61,7 +61,38 @@ class TodoListViewController: UIViewController {
     
     @IBAction func clearTodoList(_ sender: Any) {
         todoItems.value.removeAll()
-     }
+      }
     
     
+}
+
+extension TodoListViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let todoDetailViewController = navigationController.topViewController as! TodoDetailViewController
+        
+        if segue.identifier == "AddTodo" {
+            todoDetailViewController.title = "Add Todo"
+            
+            _ = todoDetailViewController.todo.subscribe(onNext: { [weak self](newTodo) in
+                self?.todoItems.value.append(newTodo)
+                }, onDisposed: {
+                    print("Finish adding a new todo.")
+            })
+        }else if segue.identifier == "EditTodo" {
+            todoDetailViewController.title = "Edit Todo"
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                todoDetailViewController.todoItem = todoItems.value[indexPath.row]
+                
+                _ = todoDetailViewController.todo.subscribe(onNext: { [weak self](todo) in
+                    self?.todoItems.value[indexPath.row] = todo
+                    }, onError: nil, onCompleted: nil, onDisposed: {
+                        print("Finish adding a new todo.")
+                })
+            }
+            
+        }
+    }
 }

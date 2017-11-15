@@ -16,6 +16,11 @@ class TodoItem: NSObject, NSCoding {
         self.name = name
         self.isFinished = isFinished
     }
+    
+    override init() {
+        super.init()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: "Name") as! String
         isFinished = aDecoder.decodeBool(forKey: "isFinished")
