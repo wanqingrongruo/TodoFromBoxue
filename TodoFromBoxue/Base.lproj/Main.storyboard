@@ -90,15 +90,29 @@
                                     <action selector="clearTodoList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Hd-Gq-8lg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlY-1U-dKR">
+                                <rect key="frame" x="155.5" y="571" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="cxs-PM-MuU"/>
+                                    <constraint firstAttribute="height" constant="64" id="hMB-ZM-r8T"/>
+                                </constraints>
+                                <state key="normal" image="Sync"/>
+                                <connections>
+                                    <action selector="saveTodoList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hRx-Vs-ALP"/>
+                                    <action selector="syncToCloud:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vzc-Ec-ngL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EF6-mp-2PG" secondAttribute="bottom" constant="32" id="41F-d9-2G2"/>
                             <constraint firstItem="EF6-mp-2PG" firstAttribute="top" secondItem="8e9-4h-4Kj" secondAttribute="bottom" constant="27" id="ERX-U1-LGO"/>
+                            <constraint firstItem="YlY-1U-dKR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.5" id="G43-yL-mVh"/>
                             <constraint firstAttribute="trailing" secondItem="8e9-4h-4Kj" secondAttribute="trailing" id="J4H-FO-5ry"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FdZ-lE-vI4" secondAttribute="trailing" constant="32" id="ZHO-7c-oC2"/>
                             <constraint firstItem="8e9-4h-4Kj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="glW-1D-tib"/>
                             <constraint firstItem="EF6-mp-2PG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="kRd-Xt-9z5"/>
+                            <constraint firstItem="YlY-1U-dKR" firstAttribute="top" secondItem="EF6-mp-2PG" secondAttribute="top" id="mnt-gr-Gcq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FdZ-lE-vI4" secondAttribute="bottom" constant="32" id="poc-JQ-tAB"/>
                             <constraint firstItem="8e9-4h-4Kj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xtO-JB-jfF"/>
                         </constraints>
@@ -262,6 +276,7 @@
     <resources>
         <image name="Delete" width="64" height="64"/>
         <image name="Save" width="64" height="64"/>
+        <image name="Sync" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xme-a3-kdu"/>

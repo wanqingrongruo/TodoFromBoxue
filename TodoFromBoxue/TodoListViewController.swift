@@ -56,12 +56,42 @@ class TodoListViewController: UIViewController {
     }
     
     @IBAction func saveTodoList(_ sender: Any) {
-        saveTodoItems()
+        
+        // 如果一个Controller会常驻在内存里不会释放，我们就不要把这种单次事件的订阅对象放到它的DisposeBag里。实际上，对于这种单次的事件序列，我们可以在订阅之后不做任何事情 -- 
+        _ = saveTodoItems().subscribe(onNext: nil, onError: { [weak self](error) in
+            self?.flash(title: "Error",
+                        message: error.localizedDescription)
+            }, onCompleted: { [weak self] in
+                self?.flash(title: "Success",
+                            message: "All Todos are saved on your phone.")
+        }, onDisposed: { print("SaveOb disposed") }
+        )
+        
+        print("RC: \(RxSwift.Resources.total)")
     }
     
     @IBAction func clearTodoList(_ sender: Any) {
         todoItems.value.removeAll()
       }
+    
+    @IBAction func syncToCloud(_ sender: Any) {
+        // Add sync code here
+        _ = syncTodoToCloud().subscribe(
+            onNext: {
+                self.flash(title: "Success",
+                           message: "All todos are synced to: \($0)")
+        },
+            onError: {
+                self.flash(title: "Failed",
+                           message: "Sync failed due to: \($0.localizedDescription)")
+        },
+            onDisposed: {
+                print("SyncOb disposed")
+        }
+        )
+        
+        print("RC: \(RxSwift.Resources.total)")
+    }
     
     
 }
