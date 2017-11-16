@@ -181,10 +181,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="QQe-xX-Bhu">
+                            <tableViewSection headerTitle="TASK NAME" id="QQe-xX-Bhu">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="7Ye-dk-pOB">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Ye-dk-pOB" id="rTF-pO-ANa">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -211,10 +211,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="qMe-2y-50P">
+                            <tableViewSection headerTitle="STATUS" id="qMe-2y-50P">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="gtd-Cs-BlM">
-                                        <rect key="frame" x="0.0" y="115" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gtd-Cs-BlM" id="wLF-h0-d9q">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -236,6 +236,35 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YWu-Tr-nF9" secondAttribute="trailingMargin" id="M2r-On-qv9"/>
                                                 <constraint firstAttribute="trailing" secondItem="PwT-xL-HyF" secondAttribute="trailing" constant="14" id="Q0n-6U-mgu"/>
                                                 <constraint firstItem="PwT-xL-HyF" firstAttribute="centerY" secondItem="wLF-h0-d9q" secondAttribute="centerY" id="hI7-U6-rjH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="PICTURE MEMO" id="O6S-Ej-He3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="178" id="dOs-Fo-pFE">
+                                        <rect key="frame" x="0.0" y="255.5" width="375" height="178"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dOs-Fo-pFE" id="fZv-Rz-tNd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="177.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kac-0N-1no">
+                                                    <rect key="frame" x="8" y="8" width="359" height="161.5"/>
+                                                    <state key="normal" title="Tap here to add your picture memos">
+                                                        <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="mPd-AI-Cf8" kind="show" id="8mG-oo-OF2"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Kac-0N-1no" secondAttribute="bottom" constant="8" id="18U-ga-975"/>
+                                                <constraint firstAttribute="trailing" secondItem="Kac-0N-1no" secondAttribute="trailing" constant="8" id="5tT-0D-hI9"/>
+                                                <constraint firstItem="Kac-0N-1no" firstAttribute="leading" secondItem="fZv-Rz-tNd" secondAttribute="leading" constant="8" id="ZmR-hJ-qSl"/>
+                                                <constraint firstItem="Kac-0N-1no" firstAttribute="top" secondItem="fZv-Rz-tNd" secondAttribute="top" constant="8" id="feA-v7-akZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -265,6 +294,7 @@
                     <connections>
                         <outlet property="doneBarBtn" destination="UBM-pJ-eLU" id="Fhf-nT-9EI"/>
                         <outlet property="isFinished" destination="PwT-xL-HyF" id="dbV-Mc-bxg"/>
+                        <outlet property="memoCollageBtn" destination="Kac-0N-1no" id="68W-7B-eg0"/>
                         <outlet property="todoName" destination="fRv-Nb-hhE" id="brI-Xb-Nb0"/>
                     </connections>
                 </tableViewController>
@@ -272,11 +302,70 @@
             </objects>
             <point key="canvasLocation" x="2189" y="0.0"/>
         </scene>
+        <!--Choose photos-->
+        <scene sceneID="br9-UV-g4X">
+            <objects>
+                <collectionViewController title="Choose photos" id="mPd-AI-Cf8" customClass="PhotoCollectionViewController" customModule="TodoFromBoxue" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="E0S-em-KkX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QoB-1Q-wBr">
+                            <size key="itemSize" width="102" height="102"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoMemo" id="CfA-q4-a87" customClass="PhotoCell" customModule="TodoFromBoxue" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-br-Rxd">
+                                            <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_selected" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-n3-Uv5" userLabel="Checkmark">
+                                            <rect key="frame" x="64" y="64" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="fWv-KO-ojp"/>
+                                                <constraint firstAttribute="width" constant="32" id="oD6-6p-H7K"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6Y3-n3-Uv5" secondAttribute="trailing" constant="6" id="Grw-vc-UDk"/>
+                                    <constraint firstItem="oz2-br-Rxd" firstAttribute="leading" secondItem="CfA-q4-a87" secondAttribute="leading" id="bCM-SS-xwe"/>
+                                    <constraint firstItem="oz2-br-Rxd" firstAttribute="top" secondItem="CfA-q4-a87" secondAttribute="top" id="hd2-5x-SoW"/>
+                                    <constraint firstAttribute="trailing" secondItem="oz2-br-Rxd" secondAttribute="trailing" id="ln8-Px-Pr3"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Y3-n3-Uv5" secondAttribute="bottom" constant="6" id="sJb-Je-5vl"/>
+                                    <constraint firstAttribute="bottom" secondItem="oz2-br-Rxd" secondAttribute="bottom" id="uKW-ea-ev9"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="checkmark" destination="6Y3-n3-Uv5" id="rJZ-S5-8IE"/>
+                                    <outlet property="imageView" destination="oz2-br-Rxd" id="aVv-1U-xMr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="mPd-AI-Cf8" id="Rtb-lo-jLk"/>
+                            <outlet property="delegate" destination="mPd-AI-Cf8" id="lnz-Yt-WhJ"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHq-QK-EgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2931" y="-4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Delete" width="64" height="64"/>
         <image name="Save" width="64" height="64"/>
         <image name="Sync" width="64" height="64"/>
+        <image name="check_selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xme-a3-kdu"/>

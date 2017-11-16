@@ -51,8 +51,8 @@ class TodoListViewController: UIViewController {
     
     @IBAction func addTodoItem(_ sender: Any) {
         
-        let todoItem = TodoItem(name: "Todo Demo", isFinished: false)
-        todoItems.value.append(todoItem)
+//        let todoItem = TodoItem(name: "Todo Demo", isFinished: false)
+//        todoItems.value.append(todoItem)
     }
     
     @IBAction func saveTodoList(_ sender: Any) {
