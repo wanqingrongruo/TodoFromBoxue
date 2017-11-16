@@ -115,7 +115,11 @@ extension PhotoCollectionViewController {
         
         cell.representedAssetIdentifier = asset.localIdentifier
         
-        imageManager.requestImage(for: asset, targetSize: thumbnailsize, contentMode: .aspectFill, options: nil) { (image, _) in
+        let imageOption = PHImageRequestOptions()
+        imageOption.isSynchronous = false // 同步
+        imageOption.isNetworkAccessAllowed = true // 允许打开网络获取 icloud 图片
+        
+        imageManager.requestImage(for: asset, targetSize: thumbnailsize, contentMode: .aspectFill, options: imageOption) { (image, _) in
             guard let image = image else{
                 return
             }

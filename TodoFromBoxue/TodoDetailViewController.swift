@@ -188,7 +188,7 @@ extension UITableView {
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
 
-        // 放弃焦点
+        // give up first response
         if let v = view ,(v.isKind(of: UITextField.self) || v.isKind(of: UITextView.self)){
             return v
         }
