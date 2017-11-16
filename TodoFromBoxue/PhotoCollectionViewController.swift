@@ -116,9 +116,8 @@ extension PhotoCollectionViewController {
         cell.representedAssetIdentifier = asset.localIdentifier
         
         let imageOption = PHImageRequestOptions()
-        imageOption.isSynchronous = false // 同步
+        imageOption.isSynchronous = true // 请求是否同步执行
         imageOption.isNetworkAccessAllowed = true // 允许打开网络获取 icloud 图片
-        
         imageManager.requestImage(for: asset, targetSize: thumbnailsize, contentMode: .aspectFill, options: imageOption) { (image, _) in
             guard let image = image else{
                 return
@@ -127,6 +126,8 @@ extension PhotoCollectionViewController {
                 cell.imageView.image = image
             }
         }
+        
+        
         
         return cell
     }
@@ -144,7 +145,6 @@ extension PhotoCollectionViewController {
         let imageOption = PHImageRequestOptions()
         imageOption.isSynchronous = true // 同步
         imageOption.isNetworkAccessAllowed = true // 允许打开网络获取 icloud 图片
-        
         imageManager.requestImage(for: asset,
                                   targetSize: view.frame.size,
                                   contentMode: .aspectFill,
