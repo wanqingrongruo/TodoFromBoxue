@@ -141,6 +141,10 @@ extension PhotoCollectionViewController {
             cell.selected()
         }
         
+        let imageOption = PHImageRequestOptions()
+        imageOption.isSynchronous = true // 同步
+        imageOption.isNetworkAccessAllowed = true // 允许打开网络获取 icloud 图片
+        
         imageManager.requestImage(for: asset,
                                   targetSize: view.frame.size,
                                   contentMode: .aspectFill,
